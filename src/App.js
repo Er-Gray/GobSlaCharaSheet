@@ -5,7 +5,7 @@ import './App.css';
 
 const Context = createContext();
 function App() {
-  const oneDSix = () => { return Math.floor(Math.random() * (6 - 1)) + 1 };
+  const oneDSix = () => { return Math.floor(Math.random() * (6 + 1 - 1)) + 1 };
 
   const [race, setRace] = useState({ "name": "", "generalSkill": ["", ""], "adventureSkill": ["", ""] });
   const [stateValues, setStateValues] = useState(Array(3).fill(0).map(() => { return oneDSix() + oneDSix() }));
@@ -52,7 +52,7 @@ function InputArea() {
   const statusTable = require("./status.json");
   const { register, handleSubmit, errors } = useForm();
 
-  const oneDThree = () => { return Math.floor(Math.random() * (3 - 1)) + 1 };
+  const oneDThree = () => { return Math.floor(Math.random() * (3 + 1 - 1)) + 1 };
 
   const raceChoices = () => {
     return Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>);
