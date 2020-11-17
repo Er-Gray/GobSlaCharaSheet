@@ -1,0 +1,64 @@
+{
+    "種族": {
+        "只人": {
+            "name": "只人",
+            "generalSkill": [
+                "長距離移動",
+                ""
+            ],
+            "adventureSkill": [
+                "過重行動",
+                "武器：投擲武器"
+            ],
+            "move": 3
+        },
+        "鉱人": {
+            "name": "鉱人",
+            "generalSkill": [
+                "暗視",
+                "工作"
+            ],
+            "adventureSkill": [
+                "治癒適性",
+                ""
+            ],
+            "move": 2
+        },
+        "森人": {
+            "name": "森人",
+            "generalSkill": [
+                "暗視",
+                "精霊の愛し子"
+            ],
+            "adventureSkill": [
+                "武器:弩弓",
+                ""
+            ],
+            "move": 4
+        },
+        "蜥蜴人": {
+            "name": "蜥蜴人",
+            "generalSkill": [
+                "暗視",
+                "竜の末裔"
+            ],
+            "adventureSkill": [
+                "免疫強化",
+                ""
+            ],
+            "move": 2
+        },
+        "圃人": {
+            "name": "圃人",
+            "generalSkill": [
+                "調理",
+                ""
+            ],
+            "adventureSkill": [
+                "隠密",
+                "機先"
+            ],
+            "move": 3
+        }
+    }
+}

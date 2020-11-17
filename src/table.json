@@ -1,0 +1,469 @@
+{
+    "出自": {
+        "只人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "猟師",
+                "profession": "野伏",
+                "generalSkill": null,
+                "adventureSkill": "怪物知識",
+                "coin": null
+            },
+            {
+                "name": "学者",
+                "profession": "魔術師",
+                "generalSkill": "文献調査",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "職人",
+                "profession": null,
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": "手仕事",
+                "coin": null
+            },
+            {
+                "name": "農民",
+                "profession": null,
+                "generalSkill": "生産業:農業",
+                "adventureSkill": "頑健",
+                "coin": null
+            },
+            {
+                "name": "商人",
+                "profession": null,
+                "generalSkill": "交渉:〇〇",
+                "adventureSkill": null,
+                "coin": 10
+            },
+            {
+                "name": "兵士",
+                "profession": "斥候",
+                "generalSkill": null,
+                "adventureSkill": "第六感",
+                "coin": null
+            },
+            {
+                "name": "騎士",
+                "profession": "戦士",
+                "generalSkill": "騎乗",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "神官",
+                "profession": "神官or竜司祭or精霊使い",
+                "generalSkill": "祈祷or瞑想",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "貴族",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ],
+        "鉱人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "猟師",
+                "profession": "野伏",
+                "generalSkill": null,
+                "adventureSkill": "怪物知識",
+                "coin": null
+            },
+            {
+                "name": "商人",
+                "profession": null,
+                "generalSkill": "交渉:〇〇",
+                "adventureSkill": null,
+                "coin": 10
+            },
+            {
+                "name": "亭主",
+                "profession": "戦士or武闘家or斥候",
+                "generalSkill": "観察",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "鍛冶師",
+                "profession": null,
+                "generalSkill": "職人:鍛冶",
+                "adventureSkill": "手仕事",
+                "coin": null
+            },
+            {
+                "name": "職人",
+                "profession": null,
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": "手仕事",
+                "coin": null
+            },
+            {
+                "name": "兵士",
+                "profession": "斥候",
+                "generalSkill": null,
+                "adventureSkill": "第六感",
+                "coin": null
+            },
+            {
+                "name": "盾砕き",
+                "profession": "戦士",
+                "generalSkill": null,
+                "adventureSkill": "強打攻撃・斬",
+                "coin": null
+            },
+            {
+                "name": "神官",
+                "profession": "神官or竜司祭",
+                "generalSkill": "祈祷",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "貴族",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ],
+        "森人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "半森人",
+                "profession": "野伏or精霊使い",
+                "generalSkill": null,
+                "adventureSkill": "応急手当",
+                "coin": null
+            },
+            {
+                "name": "細工師",
+                "profession": null,
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": "手仕事",
+                "coin": null
+            },
+            {
+                "name": "兵士",
+                "profession": "斥候",
+                "generalSkill": null,
+                "adventureSkill": "第六感",
+                "coin": null
+            },
+            {
+                "name": "猟師",
+                "profession": "野伏",
+                "generalSkill": null,
+                "adventureSkill": "怪物知識",
+                "coin": null
+            },
+            {
+                "name": "詩人",
+                "profession": "魔術師or精霊使い",
+                "generalSkill": "芸能:即興詩",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "楽士",
+                "profession": "野伏or斥候",
+                "generalSkill": "芸能:演奏",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "語り部",
+                "profession": "精霊使い",
+                "generalSkill": "礼儀作法",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "祈祷師",
+                "profession": "神官",
+                "generalSkill": "祈祷",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "族長",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ],
+        "蜥蜴人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "奴隷",
+                "profession": "野伏or斥候",
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "騎兵",
+                "profession": "戦士",
+                "generalSkill": "騎乗",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "工兵",
+                "profession": "斥候",
+                "generalSkill": "工作",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "弓兵",
+                "profession": "野伏",
+                "generalSkill": null,
+                "adventureSkill": "武器:弩弓",
+                "coin": null
+            },
+            {
+                "name": "槍兵",
+                "profession": "戦士",
+                "generalSkill": null,
+                "adventureSkill": "武器:槍",
+                "coin": null
+            },
+            {
+                "name": "歩兵",
+                "profession": "戦士",
+                "generalSkill": null,
+                "adventureSkill": "盾",
+                "coin": null
+            },
+            {
+                "name": "軍師",
+                "profession": "魔術師or竜司祭",
+                "generalSkill": null,
+                "adventureSkill": "機先",
+                "coin": null
+            },
+            {
+                "name": "司祭",
+                "profession": "神官or竜司祭",
+                "generalSkill": "祈祷",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "王卵",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ],
+        "圃人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "詩人",
+                "profession": "魔術師or精霊使い",
+                "generalSkill": "芸能:即興詩",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "学者",
+                "profession": "魔術師",
+                "generalSkill": "文献調査",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "職人",
+                "profession": null,
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": "手仕事",
+                "coin": null
+            },
+            {
+                "name": "農民",
+                "profession": null,
+                "generalSkill": "生産業:農業",
+                "adventureSkill": "頑健",
+                "coin": null
+            },
+            {
+                "name": "商人",
+                "profession": null,
+                "generalSkill": "交渉:〇〇",
+                "adventureSkill": null,
+                "coin": 10
+            },
+            {
+                "name": "亭主",
+                "profession": "戦士or武闘家or斥候",
+                "generalSkill": "観察",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "庭師",
+                "profession": "野伏or斥候",
+                "generalSkill": "生産業:農業",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "騎士",
+                "profession": "戦士",
+                "generalSkill": "騎乗",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "地主",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ]
+    },
+    "来歴": [
+        {
+            "name": "奴隷",
+            "generalSkill": "労働",
+            "adventureSkill": null
+        },
+        {
+            "name": "牢獄",
+            "generalSkill": "犯罪知識",
+            "adventureSkill": null
+        },
+        {
+            "name": "戦場",
+            "generalSkill": "冷静沈着",
+            "adventureSkill": null
+        },
+        {
+            "name": "神殿",
+            "generalSkill": "神学",
+            "adventureSkill": null
+        },
+        {
+            "name": "孤児",
+            "generalSkill": null,
+            "adventureSkill": "忍耐"
+        },
+        {
+            "name": "平穏",
+            "generalSkill": null,
+            "adventureSkill": "幸運"
+        },
+        {
+            "name": "貧困",
+            "generalSkill": "生存術",
+            "adventureSkill": null
+        },
+        {
+            "name": "学校",
+            "generalSkill": "博識",
+            "adventureSkill": null
+        },
+        {
+            "name": "箱入",
+            "generalSkill": "先入観なし",
+            "adventureSkill": null
+        },
+        {
+            "name": "贅沢",
+            "generalSkill": "鑑定",
+            "adventureSkill": null
+        },
+        {
+            "name": "宮廷",
+            "generalSkill": "礼儀作法",
+            "adventureSkill": null
+        }
+    ],
+    "邂逅": [
+        "宿敵",
+        "上司",
+        "後輩",
+        "取引相手",
+        "部下",
+        "家族",
+        "親友",
+        "先輩",
+        "婚約者",
+        "好敵手",
+        "師匠"
+    ]
+}
