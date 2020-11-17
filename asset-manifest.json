@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/GobSlaCharaSheet/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/GobSlaCharaSheet/static/js/main.b24837cd.chunk.js",
+    "main.js.map": "/GobSlaCharaSheet/static/js/main.b24837cd.chunk.js.map",
+    "runtime-main.js": "/GobSlaCharaSheet/static/js/runtime-main.2883fcbd.js",
+    "runtime-main.js.map": "/GobSlaCharaSheet/static/js/runtime-main.2883fcbd.js.map",
+    "static/js/2.5b2f0c0b.chunk.js": "/GobSlaCharaSheet/static/js/2.5b2f0c0b.chunk.js",
+    "static/js/2.5b2f0c0b.chunk.js.map": "/GobSlaCharaSheet/static/js/2.5b2f0c0b.chunk.js.map",
+    "static/js/3.e0beb0da.chunk.js": "/GobSlaCharaSheet/static/js/3.e0beb0da.chunk.js",
+    "static/js/3.e0beb0da.chunk.js.map": "/GobSlaCharaSheet/static/js/3.e0beb0da.chunk.js.map",
+    "index.html": "/GobSlaCharaSheet/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/GobSlaCharaSheet/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.5b2f0c0b.chunk.js.LICENSE.txt": "/GobSlaCharaSheet/static/js/2.5b2f0c0b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2883fcbd.js",
+    "static/js/2.5b2f0c0b.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.b24837cd.chunk.js"
+  ]
+}
