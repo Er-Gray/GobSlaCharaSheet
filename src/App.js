@@ -42,6 +42,9 @@ function App() {
       }}>
         <InputArea />
       </Context.Provider>
+      <Context.Provider value={{ race: race, setRace: setRace }}>
+        <DecisionRaceArea />
+      </Context.Provider>
     </div>
   );
 }
@@ -261,6 +264,72 @@ function InputArea() {
       {inputArea}
     </div>
   );
+}
+
+function DecisionRaceArea() {
+  const races = require("./race.json");
+  let decisionRaceArea;
+  const { race, setRace } = useContext(Context);
+  const { register, handleSubmit, errors } = useForm();
+
+  const raceSubmit = (data) => {
+    setRace(races.種族[data.decided]);
+    console.log(errors)
+  };
+
+  const raceChoices = () => {
+    return Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>);
+  };
+
+  if (race.name) {
+    decisionRaceArea = (
+      <form onSubmit={handleSubmit(raceSubmit)}>
+        <p>種族を選択してください</p>
+        <select name="decided" defaultValue={races.種族.只人.name} ref={register}>
+          {raceChoices()}
+        </select>
+        <button type="submit">決定</button>
+      </form>);
+  } else {
+    decisionRaceArea = "";
+  }
+  return decisionRaceArea;
+}
+
+function DecisionFirstAndSecondStatusArea() {
+  const [firstStatusRoll, setFirstStatusRoll] = useState({ "体力点": 0, "魂魄点": 0, "技量点": 0, "知力点": 0 });
+  const [secondStatusRoll, setSecondStatusRoll] = useState({ "集中度": 0, "持久度": 0, "反射度": 0 });
+  const { register, handleSubmit, errors } = useForm();
+  const { firstStatus, setFirstStatus, secondStatus, setSecondStatus, race } = useContext(Context);
+  const statusTable = require("./status.json");
+  let DecisionFirstAndSecondStatusArea;
+
+  const randomOrFixedSubmit = (data) => {
+    if (data.randomOrFixed === "random") {
+
+    } else if (data.randomOrFixed === "fixed") {
+      if (!race) {
+        alert("種族が選択されていません");
+      } else {
+        setFirstStatus({ "体力点": statusTable.固定値[race.name][0].体力点, "魂魄点": statusTable.固定値[race.name][0].魂魄点, "技量点": statusTable.固定値[race.name][0].技量点, "知力点": statusTable.固定値[race.name][0].知力点 });
+        setSecondStatus({ "集中度": statusTable.固定値[race.name][1].集中度, "持久度": statusTable.固定値[race.name][1].持久度, "反射度": statusTable.固定値[race.name][1].反射度 });
+        setFirstStatusRoll({ "体力点": statusTable.固定値[race.name][0].体力点, "魂魄点": statusTable.固定値[race.name][0].魂魄点, "技量点": statusTable.固定値[race.name][0].技量点, "知力点": statusTable.固定値[race.name][0].知力点 });
+        setSecondStatusRoll({ "集中度": statusTable.固定値[race.name][1].集中度, "持久度": statusTable.固定値[race.name][1].持久度, "反射度": statusTable.固定値[race.name][1].反射度 });
+      }
+    }
+  };
+
+  if (!firstStatusRoll.体力点 && !secondStatusRoll.集中度) {
+    DecisionFirstAndSecondStatusArea = (
+      <form onSubmit={handleSubmit(randomOrFixedSubmit)}>
+        <p>種族と能力値をランダムにするか固定値にするか選択してください</p>
+        <input type="radio" name="randomOrFixed" value="random" ref={register} />ランダム
+        <input type="radio" name="randomOrFixed" value="fixed" ref={register} />固定値
+        <button type="submit">決定</button>
+      </form>)
+  }
+
+  return DecisionFirstAndSecondStatusArea;
 }
 
 export default App;
