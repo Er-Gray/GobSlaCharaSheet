@@ -94,12 +94,12 @@ ${race.generalSkill[0] ? `【${race.generalSkill[0]}】　 ●　　　　○　
     };
 
     return (
-        <div>
-            <textarea readOnly cols="100" rows="30" value={value}>
+        <div id="leftArea">
+            <textarea readOnly value={value} id="charaSheetArea">
 
             </textarea>
             <br></br>
-            <button type="button" onClick={copySheet()}>キャラシをクリップボードにコピー</button>
+            <button type="button" onClick={copySheet()} id="copyButton">キャラシをクリップボードにコピー</button>
         </div>
     );
 }
