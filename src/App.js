@@ -23,9 +23,9 @@ function App() {
         <ViewArea />
       </Context.Provider>
       <div id="rightArea">
-        <div className="stateValueWrapper">
-          <p>現在の状態値の出目:{stateValues.join()}</p>
-        </div>
+        <Context.Provider value={{ stateValues: stateValues }}>
+          <StateValueViewArea />
+        </Context.Provider>
         <Context.Provider value={{ race: race, setRace: setRace, histories: histories, setHistories: setHistories, coin: coin, setCoin: setCoin }}>
           <DecisionRaceArea />
         </Context.Provider>
@@ -53,6 +53,20 @@ function App() {
       </div>
     </div>
   );
+}
+
+function StateValueViewArea() {
+  const { stateValues } = useContext(Context);
+  let stateValueViewArea = "";
+  if (stateValues.length > 0) {
+    stateValueViewArea = (
+      <div className="area">
+        <h2>現在の状態値の出目</h2>
+        <p>{stateValues.join()}</p>
+      </div>
+    );
+  }
+  return stateValueViewArea;
 }
 
 function DecisionRaceArea() {
