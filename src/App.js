@@ -25,7 +25,7 @@ function App() {
       <div className="stateValueWrapper">
         <p>現在の状態値の出目:{stateValues.join()}</p>
       </div>
-      <Context.Provider value={{ race: race, setRace: setRace }}>
+      <Context.Provider value={{ race: race, setRace: setRace, histories: histories, setHistories: setHistories, coin: coin, setCoin: setCoin }}>
         <DecisionRaceArea />
       </Context.Provider>
       <Context.Provider value={{ setFirstStatus: setFirstStatus, setSecondStatus: setSecondStatus, race: race, setRolled: setRolled }}>
@@ -272,18 +272,34 @@ function InputArea() {
 
 function DecisionRaceArea() {
   const races = require("./race.json");
+  const table = require("./table.json");
   let decisionRaceArea;
-  const { race, setRace } = useContext(Context);
+  const { race, setRace, histories, setHistories, coin, setCoin } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
+  const [addedCoin, setAddedCoin] = useState(false);
+
+  const oneDSix = () => { return Math.floor(Math.random() * (6 + 1 - 1)) + 1 };
 
   const raceSubmit = (data) => {
     setRace(races.種族[data.decided]);
-    console.log(errors)
+    console.log(errors);
   };
 
   const raceChoices = () => {
     return Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>);
   };
+
+  useEffect(() => {
+    if (histories.出自 === "" && histories.来歴 === "" && histories.邂逅 === "" && race.name) {
+      setHistories({ "出自": table.出自[race.name][oneDSix() + oneDSix() - 2], "来歴": table.来歴[oneDSix() + oneDSix() - 2], "邂逅": table.邂逅[oneDSix() + oneDSix() - 2] });
+
+    }
+
+    if (histories.出自.coin && !addedCoin) {
+      setCoin(coin + (oneDSix() + oneDSix()) * histories.出自.coin);
+      setAddedCoin(true);
+    }
+  }, [addedCoin, coin, table, histories, race, setCoin, setHistories]);
 
   if (!race.name) {
     decisionRaceArea = (
@@ -314,6 +330,7 @@ function DecisionFirstAndSecondStatusArea() {
   let DecisionFirstAndSecondStatusArea = "";
 
   const randomOrFixedSubmit = (data) => {
+    console.log(errors);
     if (data.randomOrFixed === "random") {
       setFirstStatusRoll({ "体力点": oneDThree(), "魂魄点": oneDThree(), "技量点": oneDThree(), "知力点": oneDThree() });
       setSecondStatusRoll({ "集中度": oneDThree(), "持久度": oneDThree(), "反射度": oneDThree() });
@@ -380,6 +397,7 @@ function ReliefStatusArea() {
   };
 
   const reliefSubmit = (data) => {
+    console.log(errors);
     if (firstStatus[data.decided]) {
       setFirstStatus({ ...firstStatus, [data.decided]: 3 + statusTable.ランダム修正[race.name][0][data.decided] });
     } else if (secondStatus[data.decided]) {
@@ -417,6 +435,7 @@ function AddBonusArea() {
   };
 
   const bonusSubmit = (data) => {
+    console.log(errors);
     setFirstStatus({ ...firstStatus, [data.decided]: firstStatus[data.decided] + 1 });
     setBonusAdded(true);
   };
@@ -443,6 +462,7 @@ function StateValueFixedArea() {
   let stateValueFixedArea = "";
 
   const stateValueSubmit = (data) => {
+    console.log(errors);
     if (data.fixed === "true") {
       setStateValues([5, 7, 9]);
     }
@@ -472,7 +492,7 @@ function VitalityDicisionArea() {
   }
 
   const vitalitySubmit = (data) => {
-    console.log(data);
+    console.log(errors);
     if (data.decided) {
       setStatus({ ...status, "生命力": parseInt(data.decided) + firstStatus.体力点 + firstStatus.魂魄点 + secondStatus.持久度 });
       const newValues = [...stateValues];
@@ -515,6 +535,7 @@ function MovilityDecisionArea() {
   }
 
   const moveSubmit = (data) => {
+    console.log(errors);
     if (race.name) {
       if (data.decided) {
         console.log(race.move);
@@ -555,6 +576,7 @@ function SpellCountDecisionArea() {
   }
 
   const decideSpellCount = (data) => {
+    console.log(errors);
     let spellCount;
     if (data.decided >= 12) {
       spellCount = 3;
