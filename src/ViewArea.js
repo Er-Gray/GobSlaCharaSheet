@@ -27,7 +27,7 @@ function ViewArea() {
 
 生命力：【 ${status.生命力} 】　 　 生命力２倍：【 ${status.生命力 * 2} 】
 
-移動力：【 ${status.移動力} 】　　　呪文使用回数：【 ${status.呪文回数 ? status.呪文回数 : ""} 】
+移動力：【 ${status.移動力} 】　　　呪文使用回数：【 ${status.呪文回数 !== undefined ? status.呪文回数 : ""} 】
 
 呪文抵抗基準値（魂魄反射+冒険者LV+技能補正）：【 ${firstStatus.魂魄点 + secondStatus.反射度 + 1} 】
 

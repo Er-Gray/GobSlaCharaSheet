@@ -399,19 +399,20 @@ function SpellCountDecisionArea() {
       spellCount = 2;
     } else if (data.decided >= 7) {
       spellCount = 1;
-    } else if (data.decided) {
+    } else if (data.decided <= 6) {
       spellCount = 0;
     } else {
       alert("値を入力してください");
       return "";
     }
+    console.log("sc:" + spellCount);
     setStatus({ ...status, "呪文回数": spellCount });
     const newValues = [...stateValues];
-    newValues.splice(newValues.findIndex((element) => element === parseInt(stateValues[0])), 1);
+    newValues.splice(newValues.findIndex((element) => element === parseInt(data.decided)), 1);
     setStateValues(newValues);
   };
 
-  if (!status.呪文回数) {
+  if (status.呪文回数 === undefined) {
     spellCountDecisionArea = (
       <div className="area">
         <h2>呪文回数決定</h2>
