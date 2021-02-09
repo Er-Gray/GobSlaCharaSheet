@@ -369,8 +369,8 @@
             {
                 "name": "亭主",
                 "profession": "戦士or武闘家or斥候",
-                "generalSkill": "観察",
-                "adventureSkill": null,
+                "generalSkill": null,
+                "adventureSkill": "観察",
                 "coin": null
             },
             {
