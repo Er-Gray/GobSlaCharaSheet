@@ -2,12 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "./App";
 
 function ViewArea() {
-    const { race, firstStatus, secondStatus, histories, status, coin } = useContext(Context);
+    const { race, firstStatus, secondStatus, histories, status, coin,dayWalker } = useContext(Context);
     const [value, setValue] = useState("");
 
     useEffect(() => {
         setValue(
-            `名前：【】　　種族：【 ${race.name ? race.name : ""} 】　　性別：【 】　　年齢：【  】　　PL：【  】
+            `名前：【】　　種族：【 ${race.name ? race.name : ""} ${dayWalker.name ? `(${dayWalker.name})` : ""}】　　性別：【 】　　年齢：【  】　　PL：【  】
                 
 経歴：【  ${histories.出自.name ? histories.出自.name : ""}／ ${histories.来歴.name ? histories.来歴.name : ""} ／ ${histories.邂逅} 】　　等級：【 白磁等級 】
     
@@ -38,7 +38,10 @@ function ViewArea() {
 ${race.adventureSkill[0] ? `【${race.adventureSkill[0]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${race.adventureSkill[1] ? `【${race.adventureSkill[1]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.出自.adventureSkill ? `【${histories.出自.adventureSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.来歴.adventureSkill ? `【${histories.来歴.adventureSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／` : ""}
 
 ◆一般技能 　 　初歩　／　習熟　／　熟達　／　達人　／　伝説　／　効果
-${race.generalSkill[0] ? `【${race.generalSkill[0]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${race.generalSkill[1] ? `【${race.generalSkill[1]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.出自.generalSkill ? `【${histories.出自.generalSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.来歴.generalSkill ? `【${histories.来歴.generalSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／` : ""}
+${race.generalSkill[0] ? `【${race.generalSkill[0]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${race.generalSkill[1] ? `【${race.generalSkill[1]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${race.generalSkill[2] ? `【${race.generalSkill[2]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.出自.generalSkill ? `【${histories.出自.generalSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${histories.来歴.generalSkill ? `【${histories.来歴.generalSkill}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／` : ""}
+
+◆吸血鬼専用技能 　 　初歩　／　習熟　／　熟達　／　達人　／　伝説　／　効果
+${dayWalker.生得技能[0] ? `【${dayWalker.生得技能[0]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${dayWalker.生得技能[1] ? `【${dayWalker.生得技能[1]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${dayWalker.生得技能[2] ? `【${dayWalker.生得技能[2]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${dayWalker.生得技能[3] ? `【${dayWalker.生得技能[3]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}${dayWalker.生得技能[4] ? `【${dayWalker.生得技能[4]}】　 ●　　　　○　　　　○　　　　○　　 　 ○　 ／\n` : ""}
 
 ◆呪文
 呪文行使基準値（知力集中or魂魄集中+技能補正）：【 ${firstStatus.知力点 + secondStatus.集中度} or ${firstStatus.魂魄点 + secondStatus.集中度} 】

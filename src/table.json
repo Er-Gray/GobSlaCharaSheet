@@ -394,6 +394,164 @@
                 "adventureSkill": null,
                 "coin": 50
             }
+        ],
+        "闇人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "異端者",
+                "profession": "神官or竜司祭",
+                "generalSkill": "祈祷",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "犯罪者",
+                "profession": null,
+                "generalSkill": "犯罪知識",
+                "adventureSkill": "第六感",
+                "coin": null
+            },
+            {
+                "name": "密偵",
+                "profession": "斥候or野伏",
+                "generalSkill": "長距離移動",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "商家",
+                "profession": null,
+                "generalSkill": "交渉:説得",
+                "adventureSkill": null,
+                "coin": 10
+            },
+            {
+                "name": "兵士",
+                "profession": "戦士or斥候",
+                "generalSkill": null,
+                "adventureSkill": "体術",
+                "coin": null
+            },
+            {
+                "name": "拷問吏",
+                "profession": null,
+                "generalSkill": "拷問",
+                "adventureSkill": "応急手当",
+                "coin": null
+            },
+            {
+                "name": "武人",
+                "profession": "戦士or格闘家",
+                "generalSkill": "冷静沈着",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "神官",
+                "profession": "魔術師or死人使い師or神官",
+                "generalSkill": null,
+                "adventureSkill": "呪文熟達:支配呪文",
+                "coin": null
+            },
+            {
+                "name": "精霊使い",
+                "profession": "精霊使い",
+                "generalSkill": null,
+                "adventureSkill": "追加呪文:精霊術",
+                "coin": null
+            },
+            {
+                "name": "貴種",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
+        ],
+        "獣人": [
+            {
+                "name": "冒険者",
+                "profession": "好きな職業",
+                "generalSkill": null,
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "無頼",
+                "profession": "武闘家",
+                "generalSkill": "芸能:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "奴隷",
+                "profession": "野伏or斥候",
+                "generalSkill": "職人:〇〇",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "占い師",
+                "profession": "魔術師or精霊使いor死人使い師",
+                "generalSkill": "赦しの奇跡",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "労働者",
+                "profession": null,
+                "generalSkill": "労働",
+                "adventureSkill": "忍耐",
+                "coin": null
+            },
+            {
+                "name": "狩人",
+                "profession": "野伏",
+                "generalSkill": null,
+                "adventureSkill": "怪物知識",
+                "coin": null
+            },
+            {
+                "name": "傭兵",
+                "profession": "戦士",
+                "generalSkill": null,
+                "adventureSkill": "すり抜け",
+                "coin": null
+            },
+            {
+                "name": "兵士",
+                "profession": "斥候",
+                "generalSkill": null,
+                "adventureSkill": "第六感",
+                "coin": null
+            },
+            {
+                "name": "商人",
+                "profession": null,
+                "generalSkill": "交渉:〇〇",
+                "adventureSkill": null,
+                "coin": 10
+            },
+            {
+                "name": "自然崇拝者",
+                "profession": "神官or竜司祭or精霊使い",
+                "generalSkill": "自然崇拝",
+                "adventureSkill": null,
+                "coin": null
+            },
+            {
+                "name": "貴種",
+                "profession": null,
+                "generalSkill": "統率",
+                "adventureSkill": null,
+                "coin": 50
+            }
         ]
     },
     "来歴": [

@@ -14,12 +14,14 @@ function App() {
   const [histories, setHistories] = useState({ "出自": "", "来歴": "", "邂逅": "" });
   const [status, setStatus] = useState({ "生命力": 0, "移動力": 0, "呪文回数": undefined });
   const [coin, setCoin] = useState(100);
+  const [dayWalker,setDayWalker]=useState({"name":"","生得技能":[]});
   const [rolled, setRolled] = useState(false);
   const [bonusAdeed, setBonusAdded] = useState(false);
+  console.log(dayWalker);
   return (
     <div className="App">
       <link rel="stylesheet" href="https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.css"></link>
-      <Context.Provider value={{ race: race, firstStatus: firstStatus, secondStatus: secondStatus, histories: histories, status: status, coin: coin }}>
+      <Context.Provider value={{ race: race, firstStatus: firstStatus, secondStatus: secondStatus, histories: histories, status: status, coin: coin,dayWalker:dayWalker }}>
         <ViewArea />
       </Context.Provider>
       <div id="rightArea">
@@ -50,6 +52,9 @@ function App() {
         <Context.Provider value={{ status: status, setStatus: setStatus, stateValues: stateValues, setStateValues: setStateValues }}>
           <SpellCountDecisionArea />
         </Context.Provider>
+        <Context.Provider value={{ dayWalker: dayWalker,setDayWalker:setDayWalker }}>
+          <UseDayWalker/>
+        </Context.Provider>
       </div>
     </div>
   );
@@ -76,21 +81,33 @@ function DecisionRaceArea() {
   const { race, setRace, histories, setHistories, coin, setCoin } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
   const [addedCoin, setAddedCoin] = useState(false);
+  const [originalRace,setOriginalRace]=useState("");
 
   const oneDSix = () => { return Math.floor(Math.random() * (6 + 1 - 1)) + 1 };
 
   const raceSubmit = (data) => {
     setRace(races.種族[data.decided]);
+    setOriginalRace(races.種族[data.decided].name);
+    
+    console.log(errors);
+  };
+  
+  const originalRaceSubmit = (data) => {
+    setOriginalRace(races.種族[data.decided].name);
     console.log(errors);
   };
 
-  const raceChoices = () => {
-    return Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>);
+  const raceChoices = (beastBindIn) => {
+    if(beastBindIn){
+      return Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>);
+    }else{
+      return (Object.keys(races.種族).map((viewRace, index) => <option key={index} value={viewRace}>{viewRace}</option>)).filter((elm)=>elm.props.value!=="獣憑き");
+    }
   };
 
   useEffect(() => {
-    if (histories.出自 === "" && histories.来歴 === "" && histories.邂逅 === "" && race.name) {
-      setHistories({ "出自": table.出自[race.name][oneDSix() + oneDSix() - 2], "来歴": table.来歴[oneDSix() + oneDSix() - 2], "邂逅": table.邂逅[oneDSix() + oneDSix() - 2] });
+    if (histories.出自 === "" && histories.来歴 === "" && histories.邂逅 === "" && race.name && originalRace!=="獣憑き" && originalRace!=="") {
+      setHistories({ "出自": table.出自[originalRace.replace(/\(.*\)/,"")][oneDSix() + oneDSix() - 2], "来歴": table.来歴[oneDSix() + oneDSix() - 2], "邂逅": table.邂逅[oneDSix() + oneDSix() - 2] });
 
     }
 
@@ -98,22 +115,34 @@ function DecisionRaceArea() {
       setCoin(coin + (oneDSix() + oneDSix()) * histories.出自.coin);
       setAddedCoin(true);
     }
-  }, [addedCoin, coin, table, histories, race, setCoin, setHistories]);
-
-  if (!race.name) {
+  }, [addedCoin, coin, table, histories, race, setCoin, setHistories,originalRace]);
+  if(race.name==="獣憑き"&&originalRace==="獣憑き"){
+    decisionRaceArea = (
+      <div className="area">
+        <h2>本来の種族選択</h2>
+        <form onSubmit={handleSubmit(originalRaceSubmit)}>
+          <p>本来の種族を選択してください</p>
+          <select name="decided" defaultValue={races.種族.只人.name} ref={register}>
+            {raceChoices(false)}
+          </select>
+          <button type="submit">決定</button>
+        </form>
+      </div>
+    );
+  }else if (!race.name) {
     decisionRaceArea = (
       <div className="area">
         <h2>種族選択</h2>
         <form onSubmit={handleSubmit(raceSubmit)}>
           <p>種族を選択してください</p>
           <select name="decided" defaultValue={races.種族.只人.name} ref={register}>
-            {raceChoices()}
+            {raceChoices(true)}
           </select>
           <button type="submit">決定</button>
         </form>
       </div>
     );
-  } else {
+  }else {
     decisionRaceArea = "";
   }
   return decisionRaceArea;
@@ -200,9 +229,9 @@ function ReliefStatusArea() {
 
   const reliefSubmit = (data) => {
     console.log(errors);
-    if (firstStatus[data.decided]) {
+    if (firstStatus[data.decided]!==undefined) {
       setFirstStatus({ ...firstStatus, [data.decided]: 3 + statusTable.ランダム修正[race.name][0][data.decided] });
-    } else if (secondStatus[data.decided]) {
+    } else if (secondStatus[data.decided]!==undefined) {;
       setSecondStatus({ ...secondStatus, [data.decided]: 3 + statusTable.ランダム修正[race.name][1][data.decided] });
     }
     setStatusReliefed(true);
@@ -429,6 +458,40 @@ function SpellCountDecisionArea() {
   }
 
   return spellCountDecisionArea;
+}
+
+function UseDayWalker(){
+  const { register, handleSubmit, errors } = useForm();
+  const {dayWalker,setDayWalker}=useContext(Context);
+  const dayWalkerTable=require("./dayWalker.json")
+  let UseDayWalkerArea="";
+
+  const valueChoice = () => {
+    return Object.keys(dayWalkerTable).map((value, index) => <option key={index} value={value}>{value}</option>);
+  }
+
+  const decideDayWalker=(data)=>{
+    setDayWalker(dayWalkerTable[data.decided]);
+  };
+
+  if(dayWalker.name===""){
+    UseDayWalkerArea=(
+      <div className="area">
+        <h2>昼歩く者の使用</h2>
+        <form onSubmit={handleSubmit(decideDayWalker)}>
+          <p>昼歩く者を使用するなら種族を選択し決定</p>
+          <select name="decided" ref={register}>
+            <option value={null}> </option>
+            {valueChoice()}
+          </select>
+          <button type="submit">決定</button>
+        </form>
+      </div>
+    );
+  }else{
+    UseDayWalkerArea="";
+  }
+  return UseDayWalkerArea;
 }
 
 export default App;
