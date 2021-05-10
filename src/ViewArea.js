@@ -84,7 +84,7 @@ ${dayWalker.生得技能[0] ? `【${dayWalker.生得技能[0]}】　 ●　　�
 ◆その他の所持品
 冒険者ツール（鈎縄,楔*10,小槌,火口箱,背負い袋,水袋,携帯用食器,白墨,小刀,松明*6）
 携帯食(一日セット)*７、衣類`)
-    }, [race, firstStatus, secondStatus, histories, status, coin]);
+    }, [race, firstStatus, secondStatus, histories, status, coin,dayWalker]);
 
     const copySheet = () => {
         navigator.clipboard.writeText(value)
